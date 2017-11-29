@@ -6,6 +6,7 @@ using ContosoUniversity.Models;
 
 namespace ContosoUniversity.Data
 {
+    //design-time factory
     public class SchoolContextFactory : IDesignTimeDbContextFactory<SchoolContext>
     {
         public SchoolContext CreateDbContext(string[] args)
