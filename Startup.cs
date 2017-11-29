@@ -23,7 +23,7 @@ namespace ContosoUniversity
             //services.AddDbContext<SchoolContext>(options =>
             //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<SchoolContext>(options =>
-                options.UseMySql(Configuration.GetConnectionString(EndpointTypes.Reader.ToString())));
+                options.UseMySql(Configuration.GetConnectionString(EndpointTypes.Writer.ToString())));
 
             services.AddMvc();
         }

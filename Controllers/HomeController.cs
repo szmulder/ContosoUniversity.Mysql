@@ -62,7 +62,7 @@ namespace ContosoUniversity.Controllers
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = System.Runtime.InteropServices.RuntimeInformation.OSDescription;
 
             return View();
         }
