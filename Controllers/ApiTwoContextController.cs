@@ -7,22 +7,21 @@ using ContosoUniversity.Models;
 namespace ContosoUniversity.Controllers
 {
     [Route("api/[controller]")]
-    public class ApiTestController : Controller
+    public class ApiTwoContextController : Controller
     {
         private readonly SchoolContext _context;
+        private readonly SchoolContext _readerContext;
 
-        public ApiTestController(SchoolContext context)
+        public ApiTwoContextController(SchoolContext context, SchoolReaderContext readerContext)
         {
             _context = context;
+            _readerContext = readerContext;
         }
 
         [HttpGet]
         public IEnumerable<Student> Get()
-        {
-            var schoolContextFactory = new SchoolContextFactory();
-            var schoolContextReader = schoolContextFactory.GetContext(EndpointTypes.Reader);
-
-            var students = from s in schoolContextReader.Students
+        {            
+            var students = from s in _readerContext.Students
                            select s;
 
             return students;

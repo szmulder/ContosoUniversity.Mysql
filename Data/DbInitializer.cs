@@ -39,15 +39,15 @@ namespace ContosoUniversity.Data
                     EnrollmentDate = DateTime.Parse("2005-09-01") }
             };
 
-            for (int i = 0; i < 10000; i++)
-            {
-                students.Add(new Student
-                {
-                    FirstMidName = $"Andy{i}",
-                    LastName = $"Alexander{i}",
-                    EnrollmentDate = DateTime.UtcNow
-                });
-            }
+            //for (int i = 0; i < 1000000; i++)
+            //{
+            //    students.Add(new Student
+            //    {
+            //        FirstMidName = $"Andy{i}",
+            //        LastName = $"Alexander{i}",
+            //        EnrollmentDate = DateTime.UtcNow
+            //    });
+            //}
 
             foreach (Student s in students)
             {

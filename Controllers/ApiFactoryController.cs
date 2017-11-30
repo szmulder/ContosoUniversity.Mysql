@@ -7,11 +7,11 @@ using ContosoUniversity.Models;
 namespace ContosoUniversity.Controllers
 {
     [Route("api/[controller]")]
-    public class ApiTestWriterController : Controller
+    public class ApiFactoryController : Controller
     {
         private readonly SchoolContext _context;
 
-        public ApiTestWriterController(SchoolContext context)
+        public ApiFactoryController(SchoolContext context)
         {
             _context = context;
         }
@@ -20,7 +20,8 @@ namespace ContosoUniversity.Controllers
         public IEnumerable<Student> Get()
         {
             var schoolContextFactory = new SchoolContextFactory();
-            var schoolContextReader = schoolContextFactory.GetContext(EndpointTypes.Writer);
+            var schoolContextWriter = schoolContextFactory.GetContext(EndpointTypes.Writer);
+            var schoolContextReader = schoolContextFactory.GetContext(EndpointTypes.Reader);
 
             var students = from s in schoolContextReader.Students
                            select s;
